@@ -1,0 +1,4 @@
+lib
+--require ./test/common.js
+--recursive
+--bail
