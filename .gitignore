@@ -67,7 +67,7 @@ server_configs/
 diff/
 config.json
 temp.js
-test/configs
+test/configs/
 # ===== End Node.gitignore =====
 
 .vscode/launch.json
