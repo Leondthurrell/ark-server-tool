@@ -65,7 +65,6 @@ typings/
 DevFTP/
 server_configs/
 diff/
-config.json
 temp.js
 test/configs/
 # ===== End Node.gitignore =====

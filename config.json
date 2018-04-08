@@ -1,0 +1,41 @@
+{
+    "modPriority": [
+        {
+            "id":"1139371102",
+            "order": 0
+        },
+        {
+            "id":"845855498",
+            "order": 1
+        },
+        {
+            "id":"747539326",
+            "order": 2
+        }
+    ],
+    "inifiles":[
+        {
+            "name": "Game.ini",
+            "path":"config/",
+            "tags":["advanced"]
+        },
+        {
+            "name": "GameUserSettings.ini",
+            "path":"config/",
+            "tags":["modfile", "primary"]
+        }
+    ],
+    "ftp": {
+        "host": "localhost",
+        "port": 21,
+        "user": "DevUser",
+        "password": "testpass"
+    },
+    "modfile":{
+        "file":"GameUserSettings.ini",
+        "header": "ServerSettings",
+        "key": "ActiveMods",
+        "ignore": ["ActiveMods", "ServerPassword", "ServerAdminPassword", "RCONPort", "RCONEnabled"]
+    },
+    "collection":687270657
+}
