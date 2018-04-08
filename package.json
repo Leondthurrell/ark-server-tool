@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha",
-    "generate-docs": "jsdox --output ./docs ./lib ./index.js ./README.md"
+    "generate-docs": "jsdoc -c ./docs/jsdoc.json ./docs ./lib ./index.js ./README.md"
   },
   "author": "Timothy Wall",
   "license": "ISC",
