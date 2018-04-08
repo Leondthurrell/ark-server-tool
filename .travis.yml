@@ -1,0 +1,10 @@
+{
+  "language": "node_js",
+  "node_js": "8",
+  "install": [
+    "npm install"
+  ],
+  "os": "linux",
+  "group": "stable",
+  "dist": "trusty"
+}
