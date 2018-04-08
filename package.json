@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha",
-    "remove-docs": "rm -r ./docs/",
-    "generate-docs": "jsdoc -c ./jsdoc.json"
+    "generate-docs": "rm -r ./docs/ && jsdoc -c ./jsdoc.json"
   },
   "author": "Timothy Wall",
   "license": "ISC",
