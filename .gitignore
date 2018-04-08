@@ -66,7 +66,6 @@ DevFTP/
 server_configs/
 diff/
 temp.js
-test/configs/
 # ===== End Node.gitignore =====
 
 .vscode/launch.json
