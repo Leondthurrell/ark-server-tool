@@ -1,6 +1,6 @@
 {
     "source": {
-        "include": ["./lib"],
+        "include": ["./lib", "./index.js", "./README.md"],
         "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
