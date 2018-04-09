@@ -1,28 +1,14 @@
 {
-    "modPriority": [
-        {
-            "id":"1139371102",
-            "order": 0
-        },
-        {
-            "id":"845855498",
-            "order": 1
-        },
-        {
-            "id":"747539326",
-            "order": 2
-        }
-    ],
-    "inifiles":[
+    "host":"00.00.00.00",
+    "port": 1234,
+    "configs":[
         {
             "name": "Game.ini",
-            "path":"config/",
-            "tags":["advanced"]
+            "path":"config/"
         },
         {
             "name": "GameUserSettings.ini",
-            "path":"config/",
-            "tags":["modfile", "primary"]
+            "path":"config/"
         }
     ],
     "ftp": {
@@ -31,11 +17,33 @@
         "user": "DevUser",
         "password": "testpass"
     },
-    "modfile":{
-        "file":"GameUserSettings.ini",
-        "header": "ServerSettings",
-        "key": "ActiveMods",
-        "ignore": ["ActiveMods", "ServerPassword", "ServerAdminPassword", "RCONPort", "RCONEnabled"]
+    "mods":{
+        "collection": 687270657,
+        "config":{
+            "file":"GameUserSettings.ini",
+            "header": "ServerSettings",
+            "key": "ActiveMods",
+            "ignore": ["ActiveMods", "ServerPassword", "ServerAdminPassword", "RCONPort", "RCONEnabled"]
+        },
+        "priority": [
+            {
+                "id":"1139371102",
+                "order": 0
+            },
+            {
+                "id":"845855498",
+                "order": 1
+            },
+            {
+                "id":"747539326",
+                "order": 2
+            }
+        ]
     },
-    "collection":687270657
+    "discord":{
+        "webhook": {
+            "id": "webhookID",
+            "token": "webhookToken"
+        }
+    }
 }

@@ -22,7 +22,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-diff.html">diff</a><ul class='methods'><li data-type='method'><a href="module-diff.html#~getDiff">getDiff</a></li><li data-type='method'><a href="module-diff.html#~getINIDiff">getINIDiff</a></li><li data-type='method'><a href="module-diff.html#~renderDiff">renderDiff</a></li><li data-type='method'><a href="module-diff.html#~renderiniDiff">renderiniDiff</a></li></ul></li><li><a href="module-myTools.html">myTools</a><ul class='methods'><li data-type='method'><a href="module-myTools.html#~capitalizeFirst">capitalizeFirst</a></li><li data-type='method'><a href="module-myTools.html#~errorToString">errorToString</a></li><li data-type='method'><a href="module-myTools.html#~getCollection">getCollection</a></li><li data-type='method'><a href="module-myTools.html#~getServerConfigs">getServerConfigs</a></li><li data-type='method'><a href="module-myTools.html#~getWorkshopDetails">getWorkshopDetails</a></li><li data-type='method'><a href="module-myTools.html#~listMods">listMods</a></li><li data-type='method'><a href="module-myTools.html#~loadConf">loadConf</a></li><li data-type='method'><a href="module-myTools.html#~sortMods">sortMods</a></li><li data-type='method'><a href="module-myTools.html#~verifyModList">verifyModList</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#loadConfigs">loadConfigs</a></li><li><a href="global.html#updateMods">updateMods</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="GameTool.html">GameTool</a><ul class='methods'><li data-type='method'><a href="GameTool.html#downloadConfigs">downloadConfigs</a></li><li data-type='method'><a href="GameTool.html#readConfigs">readConfigs</a></li><li data-type='method'><a href="GameTool.html#sendErrors">sendErrors</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-diff.html">diff</a><ul class='methods'><li data-type='method'><a href="module-diff.html#~getDiff">getDiff</a></li><li data-type='method'><a href="module-diff.html#~getINIDiff">getINIDiff</a></li><li data-type='method'><a href="module-diff.html#~renderDiff">renderDiff</a></li><li data-type='method'><a href="module-diff.html#~renderiniDiff">renderiniDiff</a></li></ul></li><li><a href="module-myTools.html">myTools</a><ul class='methods'><li data-type='method'><a href="module-myTools.html#~capitalizeFirst">capitalizeFirst</a></li><li data-type='method'><a href="module-myTools.html#~errorToString">errorToString</a></li><li data-type='method'><a href="module-myTools.html#~getCollection">getCollection</a></li><li data-type='method'><a href="module-myTools.html#~getServerConfigs">getServerConfigs</a></li><li data-type='method'><a href="module-myTools.html#~getWorkshopDetails">getWorkshopDetails</a></li><li data-type='method'><a href="module-myTools.html#~listMods">listMods</a></li><li data-type='method'><a href="module-myTools.html#~loadConf">loadConf</a></li><li data-type='method'><a href="module-myTools.html#~sortMods">sortMods</a></li><li data-type='method'><a href="module-myTools.html#~verifyModList">verifyModList</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#loadConfigs">loadConfigs</a></li><li><a href="global.html#updateMods">updateMods</a></li></ul>
 </nav>
 
 <div id="main">
@@ -84,7 +84,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line45">line 45</a>
+        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line46">line 46</a>
     </li></ul></dd>
     
 
@@ -258,7 +258,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line15">line 15</a>
+        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -360,7 +360,7 @@ then outputs diffrences to <filename>Diff.md</p>
 
         <tr>
             
-                <td class="name"><code>object.new</code></td>
+                <td class="name"><code>object[].new</code></td>
             
 
             <td class="type">
@@ -383,7 +383,7 @@ then outputs diffrences to <filename>Diff.md</p>
 
         <tr>
             
-                <td class="name"><code>object.old</code></td>
+                <td class="name"><code>object[].old</code></td>
             
 
             <td class="type">
@@ -400,6 +400,29 @@ then outputs diffrences to <filename>Diff.md</p>
             
 
             <td class="description last"><p>old config file</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>object[].ignore</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>fields to ignore</p></td>
         </tr>
 
     
@@ -438,7 +461,7 @@ then outputs diffrences to <filename>Diff.md</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line109">line 109</a>
+        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line110">line 110</a>
     </li></ul></dd>
     
 
@@ -601,7 +624,7 @@ then outputs diffrences to <filename>Diff.md</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line69">line 69</a>
+        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line70">line 70</a>
     </li></ul></dd>
     
 
@@ -780,7 +803,7 @@ then outputs diffrences to <filename>Diff.md</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Apr 09 2018 00:25:51 GMT+0000 (UTC) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Apr 08 2018 23:45:47 GMT-0600 (Mountain Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

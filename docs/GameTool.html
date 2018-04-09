@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Global - Documentation</title>
+    <title>GameTool - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Global</h1>
+    <h1 class="page-title">GameTool</h1>
     
 
     
@@ -40,8 +40,10 @@
 <header>
     
         <h2>
-        
+        GameTool
         </h2>
+        
+            <div class="class-description"><p>Ark GameTool Class</p></div>
         
     
 </header>
@@ -51,71 +53,11 @@
     
         
 
-<dl class="details">
-
+    
+    <h2>Constructor</h2>
     
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-        
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    <h4 class="name" id="loadConfigs"><span class="type-signature"></span>loadConfigs<span class="signature">(config, download)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="GameTool"><span class="type-signature"></span>new GameTool<span class="signature">(config)</span><span class="type-signature"></span></h4>
 
     
 
@@ -127,7 +69,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line40">line 40</a>
+        <a href="lib_gameTool.js.html">lib/gameTool.js</a>, <a href="lib_gameTool.js.html#line10">line 10</a>
     </li></ul></dd>
     
 
@@ -160,6 +102,13 @@
     
 
     
+    <dt class="tag-todo">To Do:</dt>
+    <dd class="tag-todo">
+        <ul>
+            <li>write description</li>
+        </ul>
+    </dd>
+    
 </dl>
 
 
@@ -167,8 +116,7 @@
 
 
 <div class="description">
-    <p>Loads confings from file
-optionally downloads them from ftp</p>
+    <p>constructor</p>
 </div>
 
 
@@ -222,30 +170,7 @@ optionally downloads them from ftp</p>
 
             
 
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>download</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolian</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
+            <td class="description last"><p>server config object or file path</p></td>
         </tr>
 
     
@@ -267,12 +192,30 @@ optionally downloads them from ftp</p>
 
 
 
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
         
             
 
     
 
-    <h4 class="name" id="updateMods"><span class="type-signature"></span>updateMods<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="downloadConfigs"><span class="type-signature"></span>downloadConfigs<span class="signature">(ftp, done)</span><span class="type-signature"></span></h4>
 
     
 
@@ -284,7 +227,7 @@ optionally downloads them from ftp</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line11">line 11</a>
+        <a href="lib_gameTool.js.html">lib/gameTool.js</a>, <a href="lib_gameTool.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -324,7 +267,296 @@ optionally downloads them from ftp</p>
 
 
 <div class="description">
-    <p>Updates mods in new config and exports a diff list</p>
+    <p>downloads config files from the server</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ftp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object containing ftp details.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>done</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">callback</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="readConfigs"><span class="type-signature"></span>readConfigs<span class="signature">(i)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_gameTool.js.html">lib/gameTool.js</a>, <a href="lib_gameTool.js.html#line86">line 86</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>load server config from file</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>i</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>index of file to load</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="sendErrors"><span class="type-signature"></span>sendErrors<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_gameTool.js.html">lib/gameTool.js</a>, <a href="lib_gameTool.js.html#line73">line 73</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Sends errors in messages buffer to console</p>
 </div>
 
 
