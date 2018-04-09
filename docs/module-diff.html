@@ -22,7 +22,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-diff.html">diff</a><ul class='methods'><li data-type='method'><a href="module-diff.html#~getDiff">getDiff</a></li><li data-type='method'><a href="module-diff.html#~renderDiff">renderDiff</a></li><li data-type='method'><a href="module-diff.html#~renderiniDiff">renderiniDiff</a></li></ul></li><li><a href="module-myTools.html">myTools</a><ul class='methods'><li data-type='method'><a href="module-myTools.html#~capitalizeFirst">capitalizeFirst</a></li><li data-type='method'><a href="module-myTools.html#~errorToString">errorToString</a></li><li data-type='method'><a href="module-myTools.html#~getCollection">getCollection</a></li><li data-type='method'><a href="module-myTools.html#~getServerConfigs">getServerConfigs</a></li><li data-type='method'><a href="module-myTools.html#~getWorkshopDetails">getWorkshopDetails</a></li><li data-type='method'><a href="module-myTools.html#~listMods">listMods</a></li><li data-type='method'><a href="module-myTools.html#~loadConf">loadConf</a></li><li data-type='method'><a href="module-myTools.html#~sortMods">sortMods</a></li><li data-type='method'><a href="module-myTools.html#~verifyModList">verifyModList</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#iniDiff">iniDiff</a></li><li><a href="global.html#loadConfigs">loadConfigs</a></li><li><a href="global.html#updateMods">updateMods</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-diff.html">diff</a><ul class='methods'><li data-type='method'><a href="module-diff.html#~getDiff">getDiff</a></li><li data-type='method'><a href="module-diff.html#~getINIDiff">getINIDiff</a></li><li data-type='method'><a href="module-diff.html#~renderDiff">renderDiff</a></li><li data-type='method'><a href="module-diff.html#~renderiniDiff">renderiniDiff</a></li></ul></li><li><a href="module-myTools.html">myTools</a><ul class='methods'><li data-type='method'><a href="module-myTools.html#~capitalizeFirst">capitalizeFirst</a></li><li data-type='method'><a href="module-myTools.html#~errorToString">errorToString</a></li><li data-type='method'><a href="module-myTools.html#~getCollection">getCollection</a></li><li data-type='method'><a href="module-myTools.html#~getServerConfigs">getServerConfigs</a></li><li data-type='method'><a href="module-myTools.html#~getWorkshopDetails">getWorkshopDetails</a></li><li data-type='method'><a href="module-myTools.html#~listMods">listMods</a></li><li data-type='method'><a href="module-myTools.html#~loadConf">loadConf</a></li><li data-type='method'><a href="module-myTools.html#~sortMods">sortMods</a></li><li data-type='method'><a href="module-myTools.html#~verifyModList">verifyModList</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#loadConfigs">loadConfigs</a></li><li><a href="global.html#updateMods">updateMods</a></li></ul>
 </nav>
 
 <div id="main">
@@ -84,7 +84,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line12">line 12</a>
+        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -168,7 +168,7 @@
             <td class="type">
             
                 
-<span class="param-type">array</span>
+<span class="param-type">Array.&lt;number></span>
 
 
             
@@ -191,7 +191,7 @@
             <td class="type">
             
                 
-<span class="param-type">array</span>
+<span class="param-type">Array.&lt;number></span>
 
 
             
@@ -246,7 +246,7 @@
 
     
 
-    <h4 class="name" id="~renderDiff"><span class="type-signature">(inner) </span>renderDiff<span class="signature">(diff, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~getINIDiff"><span class="type-signature">(inner) </span>getINIDiff<span class="signature">(file)</span><span class="type-signature"></span></h4>
 
     
 
@@ -258,7 +258,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line75">line 75</a>
+        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -290,6 +290,193 @@
 
     
 
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Gets differences in old and new config
+then outputs diffrences to <filename>Diff.md</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;object></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>object.new</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>new config file</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>object.old</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>old config file</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~renderDiff"><span class="type-signature">(inner) </span>renderDiff<span class="signature">(diff, callback)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line109">line 109</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-todo">To Do:</dt>
+    <dd class="tag-todo">
+        <ul>
+            <li>Scrap and rewrite</li>
+        </ul>
+    </dd>
     
 </dl>
 
@@ -414,7 +601,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line36">line 36</a>
+        <a href="lib_diff.js.html">lib/diff.js</a>, <a href="lib_diff.js.html#line69">line 69</a>
     </li></ul></dd>
     
 
@@ -521,7 +708,7 @@
             <td class="type">
             
                 
-<span class="param-type">array</span>
+<span class="param-type">Array.&lt;object></span>
 
 
             
@@ -593,7 +780,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Apr 08 2018 20:54:19 GMT+0000 (UTC) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Apr 09 2018 00:25:51 GMT+0000 (UTC) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -22,7 +22,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-diff.html">diff</a><ul class='methods'><li data-type='method'><a href="module-diff.html#~getDiff">getDiff</a></li><li data-type='method'><a href="module-diff.html#~renderDiff">renderDiff</a></li><li data-type='method'><a href="module-diff.html#~renderiniDiff">renderiniDiff</a></li></ul></li><li><a href="module-myTools.html">myTools</a><ul class='methods'><li data-type='method'><a href="module-myTools.html#~capitalizeFirst">capitalizeFirst</a></li><li data-type='method'><a href="module-myTools.html#~errorToString">errorToString</a></li><li data-type='method'><a href="module-myTools.html#~getCollection">getCollection</a></li><li data-type='method'><a href="module-myTools.html#~getServerConfigs">getServerConfigs</a></li><li data-type='method'><a href="module-myTools.html#~getWorkshopDetails">getWorkshopDetails</a></li><li data-type='method'><a href="module-myTools.html#~listMods">listMods</a></li><li data-type='method'><a href="module-myTools.html#~loadConf">loadConf</a></li><li data-type='method'><a href="module-myTools.html#~sortMods">sortMods</a></li><li data-type='method'><a href="module-myTools.html#~verifyModList">verifyModList</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#iniDiff">iniDiff</a></li><li><a href="global.html#loadConfigs">loadConfigs</a></li><li><a href="global.html#updateMods">updateMods</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-diff.html">diff</a><ul class='methods'><li data-type='method'><a href="module-diff.html#~getDiff">getDiff</a></li><li data-type='method'><a href="module-diff.html#~getINIDiff">getINIDiff</a></li><li data-type='method'><a href="module-diff.html#~renderDiff">renderDiff</a></li><li data-type='method'><a href="module-diff.html#~renderiniDiff">renderiniDiff</a></li></ul></li><li><a href="module-myTools.html">myTools</a><ul class='methods'><li data-type='method'><a href="module-myTools.html#~capitalizeFirst">capitalizeFirst</a></li><li data-type='method'><a href="module-myTools.html#~errorToString">errorToString</a></li><li data-type='method'><a href="module-myTools.html#~getCollection">getCollection</a></li><li data-type='method'><a href="module-myTools.html#~getServerConfigs">getServerConfigs</a></li><li data-type='method'><a href="module-myTools.html#~getWorkshopDetails">getWorkshopDetails</a></li><li data-type='method'><a href="module-myTools.html#~listMods">listMods</a></li><li data-type='method'><a href="module-myTools.html#~loadConf">loadConf</a></li><li data-type='method'><a href="module-myTools.html#~sortMods">sortMods</a></li><li data-type='method'><a href="module-myTools.html#~verifyModList">verifyModList</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#loadConfigs">loadConfigs</a></li><li><a href="global.html#updateMods">updateMods</a></li></ul>
 </nav>
 
 <div id="main">
@@ -39,13 +39,46 @@
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 /** @module diff */
-let difference = require('array-difference');
-let myTools = require('./myTools.js');
+const fs = require('fs');
+const difference = require('array-difference');
+const myTools = require('./myTools.js');
+const objDiff = require('deep-diff');
+
+
+/** Gets differences in old and new config
+ * then outputs diffrences to &lt;filename>Diff.md
+ * @param {object[]}
+ * @param {object} object.new - new config file
+ * @param {object} object.old - old config file
+ */
+function getINIDiff(file) {
+    let ignore = [];
+    if (!file) {
+        console.log('Config not loaded');
+        return;
+    }
+    if (!file.old) {
+        console.log('No old file to compare to');
+        return;
+    }
+    if (!file.new) {
+        console.log('No new file to compare to');
+        return;
+    }
+    if (file.ignore) {
+        ignore = file.ignore;
+    }
+    let fileName = file.name.substring(0, file.name.indexOf('.'))+'Diff.md';
+    let fileDiff = objDiff(file.old, file.new);
+    console.log(fileName);
+    let renderedDiff = renderiniDiff(fileDiff, ignore);
+    fs.writeFileSync('./server_configs/diff/'+fileName, renderedDiff, 'utf-8');
+}
 
 /**
  * returns a diffrence object
- * @param {array} oldlist
- * @param {array} newlist
+ * @param {number[]} oldlist
+ * @param {number[]} newlist
  * @return {object}
  */
 function getDiff(oldlist, newlist) {
@@ -69,7 +102,7 @@ function getDiff(oldlist, newlist) {
 
 /** Creates difference text for INI files
  * @param {object} diff output from getDiff
- * @param {array} ignore keys to ingore
+ * @param {object[]} ignore keys to ingore
  * @return {string} markdown string
  */
 function renderiniDiff(diff, ignore) {
@@ -79,7 +112,7 @@ function renderiniDiff(diff, ignore) {
         removed: ['\n**Removed:**'],
         changed: ['\n**Changed:**'],
     };
-    for (i in diff) {
+    for (let i in diff) {
         if (!ignore.includes(diff[i].path[1]) &amp;&amp; diff[i].path.length > 1) {
             let item = diff[i].path[1];
             let change = diff[i].kind;
@@ -97,7 +130,7 @@ function renderiniDiff(diff, ignore) {
             }
         }
     }
-    for (i in outobj) {
+    for (let i in outobj) {
         if (outobj[i].length !== 1) {
             outarr = outarr.concat(outobj[i]);
         }
@@ -108,6 +141,7 @@ function renderiniDiff(diff, ignore) {
 
 /**
  * creates a markdown string of differences in a mod list
+ * @todo Scrap and rewrite
  * @param {object} diff
  * @param {function} callback
  */
@@ -126,8 +160,8 @@ function renderDiff(diff, callback) {
         if (diff.removed[0] !== '') {
             outobj.removed.push('**Removed: '+diff.removed.length+'**');
         }
-        data = JSON.parse(body);
-        for (i in data.response.publishedfiledetails) {
+        let data = JSON.parse(body);
+        for (let i in data.response.publishedfiledetails) {
             if (Object.prototype.hasOwnProperty.call(data.response.publishedfiledetails, i)) {
                 let item = data.response.publishedfiledetails[i];
                 let temp = item.title+'\n      '+'http://steamcommunity.com/sharedfiles/filedetails/?id='+item.publishedfileid;
@@ -139,12 +173,12 @@ function renderDiff(diff, callback) {
                 }
             }
         }
-        for (i in outobj.added) {
+        for (let i in outobj.added) {
             if (Object.prototype.hasOwnProperty.call(outobj.added, i)) {
                 outarr.push(outobj.added[i]);
             }
         }
-        for (i in outobj.removed) {
+        for (let i in outobj.removed) {
             if (Object.prototype.hasOwnProperty.call(outobj.removed, i)) {
                 outarr.push(outobj.removed[i]);
             }
@@ -157,6 +191,7 @@ function renderDiff(diff, callback) {
 
 module.exports = {
     getDiff: getDiff,
+    getINIDiff: getINIDiff,
     renderDiff: renderDiff,
     renderiniDiff: renderiniDiff,
 };
@@ -172,7 +207,7 @@ module.exports = {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Apr 08 2018 20:54:19 GMT+0000 (UTC) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Apr 09 2018 00:25:51 GMT+0000 (UTC) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

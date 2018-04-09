@@ -3,16 +3,15 @@ const fs = require('fs');
 const myTools = require('./lib/myTools.js');
 const modDiff = require('./lib/diff.js');
 const ini = require('ini');
-const objDiff = require('deep-diff');
 
 let config = myTools.loadConf('./config.json');
 let serverConfigs;
 
 /** Updates mods in new config and exports a diff list */
 function updateMods() {
-    file = config.modfile.file;
-    header = config.modfile.header;
-    key = config.modfile.key;
+    let file = config.modfile.file;
+    let header = config.modfile.header;
+    let key = config.modfile.key;
     let mods = {
         old: serverConfigs[file].old[header][key].split(','),
         new: [],
@@ -30,34 +29,6 @@ function updateMods() {
         });
         fs.writeFileSync('./server_configs/'+file, ini.stringify(serverConfigs[file].new));
     });
-}
-
-/** Gets differences in old and new config
- * then outputs diffrences to <filename>Diff.md
- * @param {object} file
- */
-function iniDiff(file) {
-    let ignore = [];
-    if (!file) {
-        console.log('Config not loaded');
-        return;
-    }
-    if (!file.old) {
-        console.log('No old file to compare to');
-        return;
-    }
-    if (!file.new) {
-        console.log('No new file to compare to');
-        return;
-    }
-    if (file.ignore) {
-        ignore = file.ignore;
-    }
-    let filename = file.name.substring(0, file.name.indexOf('.'))+'Diff.md';
-    let filediff = objDiff(file.old, file.new);
-    console.log(filename);
-    let renderedDiff = modDiff.renderiniDiff(filediff, ignore);
-    fs.writeFileSync('./server_configs/diff/'+filename, renderedDiff, 'utf-8');
 }
 
 /**
@@ -80,9 +51,9 @@ function loadConfigs(config, download) {
     };
     /** loads config files files */
     function load() {
-        for (i in config.inifiles) {
+        for (let i in config.inifiles) {
             if (Object.prototype.hasOwnProperty.call(serverConfigs, i)) {
-                file = config.inifiles[i].name;
+                let file = config.inifiles[i].name;
                 if (fs.existsSync('./server_configs/remote/'+file)) {
                     if (!serverConfigs[file]) {
                         serverConfigs[file] = config.inifiles[i];
@@ -108,7 +79,7 @@ function loadConfigs(config, download) {
     if (download === true) {
         myTools.getServerConfigs(config.ftp, config.inifiles, (e)=>{
             if (e) {
-                for (i in e) {
+                for (let i in e) {
                     if (e[i]) {
                     console.log('Error downloading '+e[i].filename);
                     console.log(e[i].message);
