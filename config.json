@@ -12,10 +12,10 @@
         }
     ],
     "ftp": {
-        "host": "localhost",
-        "port": 21,
-        "user": "DevUser",
-        "password": "testpass"
+        "host": "00.00.00.00",
+        "port": 00,
+        "user": "ftpuser",
+        "password": "******"
     },
     "mods":{
         "collection": 687270657,
